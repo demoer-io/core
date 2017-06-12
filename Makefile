@@ -4,15 +4,14 @@ GOINSTALL=$(GO) install
 GOCLEAN=$(GO) clean
 GOGET=$(GOV) fetch -v
 
-deps:
-	@$(GOGET) github.com/urfave/cli
-
 fetch:
 	@$(GOGET) github.com/urfave/cli
+	@$(GOGET) github.com/gorilla/mux
+	@$(GOGET) github.com/gorilla/handlers
 
 build:
 	@echo "start building..."
 	$(GOINSTALL)
 	@echo "Yay! build DONE!"
 
-all: deps build
+all: fetch build

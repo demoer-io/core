@@ -6,6 +6,7 @@ import (
 
 	"github.com/urfave/cli"
 
+	"github.com/demoer-io/demoer/api"
 	"github.com/demoer-io/demoer/repository"
 )
 
@@ -18,6 +19,7 @@ func main() {
 
 	app.Commands = []cli.Command{
 		repository.Command,
+		api.Command,
 	}
 
 	if err := app.Run(os.Args); err != nil {
